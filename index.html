@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Livraria DBC-TS</title>
+
+    <link rel="icon" href="./assets/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/normalizer.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <section class="pb-5">
+        <header>
+            <nav class="navbar navbar-expand-xl">
+                <div class="container">
+                    <a class="navbar-brand" href="#"><i data-lucide="library-big" class="icon-logo"></i>
+                        DBC BookLab</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        <i data-lucide="x" class="icon-x"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-3 align-items-center">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#fatherCard" onclick="filterCategory('Sci-fi')">Sci-Fi</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#fatherCard" onclick="filterCategory('Romance')">Romance</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#fatherCard" onclick="filterCategory('Ação')">Ação</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#fatherCard" onclick="filterCategory('Comédia')">Comédia</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#fatherCard" onclick="filterCategory('Tecnologia')">Tecnologia</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link px-3 principal-btn rounded" href="#fatherCard" onclick="filterCategory('Todos')">Todos</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </section>
+
+    <section class="form-container my-5 mw-50 main-section">
+        <h1 class="text-white text-center mb-3 pt-4 main-title">BookLab - Suas ideias transcritas em textos</h1>
+        <form class="row g-3" id="form">
+            <div class="col-md-6">
+                <label for="inputLivro" class="form-label">Nome do Livro:</label>
+                <input type="text" class="form-control shadow-lg" id="inputLivro" placeholder="Ex: Como ser um bom dev" required>
+            </div>
+            <div class="col-md-6">
+                <label for="inputAutor" class="form-label shadow-lg">Autor:</label>
+                <input type="text" class="form-control" id="inputAutor" placeholder="Ex: William Augusto" required>
+            </div>
+            <div class="col-md-6">
+                <label for="inputCategoria" class="form-label">Categoria principal:</label>
+                <select id="inputCategoria" class="form-select shadow-lg" required>
+                    <option value="" selected disabled hidden>Selecione a categoria do seu livro</option>
+                    <option>Sci-fi</option>
+                    <option>Romance</option>
+                    <option>Ação</option>
+                    <option>Comédia</option>
+                    <option>Tecnologia</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="inputPreco" class="form-label">Preço:</label>
+                <input type="number" id="inputPreco" class="form-control" placeholder="Ex: 242.12" step="any">
+            </div>
+            <div class="col-md-12">
+                <label for="inputUrl" class="form-label shadow-lg">Capa:</label>
+                <input type="text" class="form-control" id="inputUrl" placeholder="Url da imagem da capa do livro">
+            </div>
+
+            <div class="mb-3">
+                <label for="inputDescricao" class="form-label shadow-lg">Breve Sinópse:</label>
+                <textarea class="form-control" id="inputDescricao" rows="3" placeholder="Ex: Guia prático sobre boas práticas..." required maxlength="200"></textarea>
+            </div>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button type="submit" class="btn btn-success shadow" id="sendButton">Cadastrar Livro</button>
+            </div>
+        </form>
+        <ul id="todo" class="list-unstyled my-4">
+        </ul>
+    </section>
+
+    <main>
+        <section class="bg-books">
+            <div class="container py-5">
+                <h2 class="mb-3 secondary-title text-center">Seus livros adicionados</h2>
+                <div class="row row-cols-1 row-cols-md-3 g-4" id="fatherCard">
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section>
+        <footer>
+            <p>&copy; 2025 - Meu Site Responsivo. Todos os direitos reservados</p>
+        </footer>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="./ts/script.js"></script>
+</body>
+
+</html>
